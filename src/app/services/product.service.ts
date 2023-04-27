@@ -23,8 +23,9 @@ export class ProductService {
         );
     }
 
-    addProducts(product:IProduct) {
+    addProduct(product:IProduct) {
       const myCollection = collection(this.fs, 'products');
       addDoc(myCollection, product);
     }
+
 }

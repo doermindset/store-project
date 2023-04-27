@@ -19,6 +19,8 @@ import {FirebaseAppModule, initializeApp, provideFirebaseApp} from '@angular/fir
 import { FirestoreModule } from '@angular/fire/firestore';
 import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     MatListModule,
     MatButtonModule,
     AppRoutingModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

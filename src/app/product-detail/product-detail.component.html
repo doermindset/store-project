@@ -1,24 +1,21 @@
 <section>
     <mat-card>
         <mat-card-title>{{pageTitle + ': ' + product?.name}}</mat-card-title>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>hello</p>
-
-        </mat-card-content>
     </mat-card>
-</section>
-<section>
+<br></section>
+<section *ngIf="product">
     <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile><img [src]="product?.imageUrl"></mat-grid-tile>
+        <mat-grid-tile><img [src]="product.imageUrl"></mat-grid-tile>
         <mat-grid-tile>
+            
             <mat-list role="list">
-                <mat-list-item role="listitem">{{product?.name}}</mat-list-item>
-                <mat-list-item role="listitem">{{product?.id}}</mat-list-item>
-                <mat-list-item role="listitem">{{product?.price}}</mat-list-item>
-                <mat-list-item role="listitem">{{product?.available}}</mat-list-item>
-                <mat-list-item role="listitem">{{product?.rating}}</mat-list-item>              
+                <mat-list-item role="listitem"><pre><strong>Name</strong>       {{product.name}}</pre></mat-list-item>
+                <mat-list-item role="listitem"><pre><strong>Code</strong>       {{product.id}}</pre></mat-list-item>
+                <mat-list-item role="listitem"><pre><strong>Price</strong>      {{product.price}}</pre></mat-list-item>
+                <mat-list-item role="listitem"><pre><strong>Available</strong>  {{product.available}}</pre></mat-list-item>
+                <mat-list-item role="listitem"><pre><strong>Review</strong>     <app-star [rating]="product.rating"></app-star></pre></mat-list-item>
               </mat-list>
         </mat-grid-tile>
-    </mat-grid-list>    
+    </mat-grid-list>
+   
 </section>

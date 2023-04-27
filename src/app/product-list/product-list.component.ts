@@ -20,6 +20,15 @@ export class ProductListComponent implements OnInit, OnDestroy{
     errorMessage = "";
     sub! :Subscription;
     products !: IProduct[];
+    addTable: boolean = false;
+    remTable: boolean = false;
+    newProductId!: string
+    newStudentAlter!: any;
+    newProductPrice!: number;
+    newProductRating!: number;
+    newProductImgUrl!: string;
+    newProductName!: string;
+    remId!: string;
 
     constructor(private productService: ProductService) {}
 
@@ -40,18 +49,19 @@ export class ProductListComponent implements OnInit, OnDestroy{
       this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
-    // @ViewChild(MatTable) table: MatTable<IProduct> | undefined;
+    changeAddTable(): void {
+      this.addTable ? this.addTable = false : this.addTable = true;
+    }
 
-    // addData() {
-    //   const randomElementIndex = Math.floor(Math.random() * this.products.length);
-    //   this.dataSource.push(this.products[randomElementIndex]);
-    //   this.table?.renderRows();
-    // }
-  
-    // removeData() {
-    //   this.dataSource.pop();
-    //   this.table?.renderRows();
-    // }
+    changeRemoveTable(): void {
+      this.remTable ? this.remTable = false : this.remTable = true;
+    }
+
+    addProduct(){
+      let newProduct: IProduct = {id: this.newProductId, name: this.newProductName, imageUrl: this.newProductImgUrl, price: Number(this.newProductPrice), available: true, rating: Number(this.newProductRating)};
+      this.productService.addProduct(newProduct);
+      this.changeAddTable()
+    }
 
 
 }
